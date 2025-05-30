@@ -23,15 +23,24 @@
     }
 %>
 
+<!DOCTYPE html>
 <html>
-<head><title>Login</title></head>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <body>
-    <h2>Login</h2>
-    <form method="post">
-        <input type="text" name="username" placeholder="Username" required><br><br>
-        <input type="password" name="password" placeholder="Password" required><br><br>
-        <button type="submit">Login</button>
-    </form>
-    <p style="color:red;"><%= msg %></p>
+    <div class="form-container">
+        <h2>Login</h2>
+        <form method="post">
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="submit" value="Login">
+        </form>
+        <% if (!msg.isEmpty()) { %>
+            <p style="color:red; text-align: center;"><%= msg %></p>
+        <% } %>
+        <a href="register.jsp">Don't have an account? Register</a>
+    </div>
 </body>
 </html>
