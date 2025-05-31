@@ -26,6 +26,7 @@ language="java" %>
         box-shadow: var(--shadow-lg);
         padding: var(--space-8);
         animation: fadeInScale 0.7s;
+        color: var(--text-primary);
       }
     </style>
   </head>

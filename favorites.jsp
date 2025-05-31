@@ -71,11 +71,11 @@
       </div>
     </nav>
 
-    <h1 style="text-align:center; margin-top: 2rem;">Your Favorite TV Shows</h1>
+    <h1 style="text-align:center; margin-top: 2rem; color: var(--text-primary);">Your Favorite TV Shows</h1>
 
     <div class="fav-list">
         <% if (favorites.isEmpty()) { %>
-            <p style="text-align:center; color: white;">You have no favorite shows yet. Search and add some!</p>
+            <p style="text-align:center; color: var(--text-primary);">You have no favorite shows yet. Search and add some!</p>
         <% } else { 
             for (Map<String, String> fav : favorites) { %>
                 <div class="fav-card">
