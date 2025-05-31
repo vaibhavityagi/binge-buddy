@@ -14,8 +14,10 @@ response.sendRedirect("search.jsp"); return; } %>
     <div class="welcome-container">
       <h1>Welcome to BingeBuddy</h1>
       <p>Please login or register to continue</p>
-      <a href="login.jsp">Login</a>
-      <a href="register.jsp">Register</a>
+      <div class="btn-group">
+        <a href="login.jsp" class="btn">Login</a>
+        <a href="register.jsp" class="btn">Register</a>
+      </div>
     </div>
   </body>
 </html>
