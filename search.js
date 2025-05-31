@@ -3,25 +3,73 @@ const query = document.querySelector('#searchBar')
 const submit = document.querySelector('button')
 const container = document.querySelector('.container')
 
-
 // functions
-const removeImages = () => {
-    const allImages = document.querySelectorAll('img')
-    for (let image of allImages) {
-        image.remove()
-    }
+const removeShows = () => {
+    container.innerHTML = ''; // clear all previous shows and buttons
 }
 
-const printImages = (data) => {
-    for (let ele of data) {
+const printShows = (data) => {
+    data.forEach(ele => {
         if (ele.show.image) {
-            const imgAd = ele.show.image.medium
-            const newShow = document.createElement('img')
-            newShow.src = imgAd
-            container.append(newShow)
+            const show = ele.show;
+
+            // container div for each show
+            const showDiv = document.createElement('div');
+            showDiv.classList.add('show-card');
+
+            // show info (image + name)
+            const showInfo = document.createElement('div');
+            showInfo.classList.add('show-info');
+
+            const img = document.createElement('img');
+            img.src = show.image.medium;
+            img.alt = show.name;
+
+            const title = document.createElement('p');
+            title.textContent = show.name;
+
+            showInfo.appendChild(img);
+            showInfo.appendChild(title);
+
+            // form for adding favorite
+            const favForm = document.createElement('form');
+            favForm.method = 'post';
+            favForm.action = 'favorites';
+
+            const actionInput = document.createElement('input');
+            actionInput.type = 'hidden';
+            actionInput.name = 'action';
+            actionInput.value = 'add';
+
+            const showIdInput = document.createElement('input');
+            showIdInput.type = 'hidden';
+            showIdInput.name = 'showId';
+            showIdInput.value = show.id;
+
+            const showNameInput = document.createElement('input');
+            showNameInput.type = 'hidden';
+            showNameInput.name = 'showName';
+            showNameInput.value = show.name;
+
+            const favButton = document.createElement('button');
+            favButton.type = 'submit';
+            favButton.textContent = 'Add to Favorites';
+            favButton.classList.add('fav-btn');
+
+            favForm.appendChild(actionInput);
+            favForm.appendChild(showIdInput);
+            favForm.appendChild(showNameInput);
+            favForm.appendChild(favButton);
+
+            // append info and form to showDiv
+            showDiv.appendChild(showInfo);
+            showDiv.appendChild(favForm);
+
+            // append showDiv to container
+            container.appendChild(showDiv);
         }
-    }
-    query.value = ""
+    });
+    query.value = "";
 }
 
 const err = () => {
@@ -33,16 +81,14 @@ const err = () => {
 let cnt = 0;
 const fetchData = async () => {
     try {
-        // in case there are multiple things to be added to the url, better this way than to directly add on the url
         const config = { params: { q: query.value } }
-        const res = await axios.get(`https://api.tvmaze.com/search/shows`, config)
+        const res = await axios.get(https://api.tvmaze.com/search/shows, config)
         cnt++;
-        if (cnt > 1) removeImages()
-        printImages(res.data)
+        if (cnt > 1) removeShows()
+        printShows(res.data)
     } catch (e) {
         err()
     }
-
 }
 
 // event listeners

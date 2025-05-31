@@ -34,7 +34,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>FavoriteServlet</servlet-name>
-        <url-pattern>/favorite</url-pattern>
+        <url-pattern>/favorites</url-pattern>
     </servlet-mapping>
 
     <!-- Search Servlet -->

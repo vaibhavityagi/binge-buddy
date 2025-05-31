@@ -11,7 +11,7 @@ public class DatabaseConnection {
         } catch (ClassNotFoundException e) {
             throw new SQLException("MySQL JDBC Driver not found", e);
         }
-        String url = "jdbc:mysql://localhost:3306/bingeBuddy";
+        String url = "jdbc:mysql://localhost:3306/bingebuddy";
         String username = "root";
         String password = "root";
         return DriverManager.getConnection(url, username, password);
