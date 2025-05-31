@@ -13,7 +13,7 @@ response.sendRedirect("login.jsp"); return; } %>
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         min-height: 100vh;
         margin: 0;
         padding: var(--space-4);
@@ -28,59 +28,12 @@ response.sendRedirect("login.jsp"); return; } %>
         box-shadow: var(--shadow-lg);
         padding: var(--space-8);
         animation: fadeInScale 0.7s;
+        color: var(--text-primary);
       }
       .container {
         width: 100%;
         max-width: 800px;
         margin: var(--space-8) auto;
-      }
-      .navbar {
-        width: 100%;
-        background: linear-gradient(
-          90deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
-        color: var(--text-on-dark);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: var(--space-3) var(--space-8);
-        box-shadow: var(--shadow-md);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-      .navbar .nav-left {
-        font-size: 1.5rem;
-        font-weight: bold;
-        letter-spacing: 1px;
-      }
-      .navbar .nav-links {
-        display: flex;
-        gap: var(--space-6);
-      }
-      .navbar .nav-links a {
-        color: var(--text-on-dark);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color var(--transition-fast);
-        padding: var(--space-2) var(--space-3);
-        border-radius: var(--radius-sm);
-      }
-      .navbar .nav-links a:hover {
-        background: var(--accent-color);
-        color: var(--primary-dark);
-      }
-      @media (max-width: 600px) {
-        .navbar {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: var(--space-2);
-        }
-        .navbar .nav-links {
-          gap: var(--space-3);
-        }
       }
     </style>
   </head>
