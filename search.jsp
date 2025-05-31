@@ -19,8 +19,8 @@ response.sendRedirect("login.jsp"); return; } %>
     <div class="container"></div>
 
     <br />
-    <a href="profile.jsp">My Profile</a>
-    <a href="favorites.jsp">My Favourites</a>
+    <a href="profile">My Profile</a>
+    <a href="favorites">My Favourites</a>
     <a href="logout.jsp" style="color: white">Logout</a>
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>

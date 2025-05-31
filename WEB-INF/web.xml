@@ -52,7 +52,6 @@
         <servlet-name>UserProfileServlet</servlet-name>
         <servlet-class>com.vee.bingeBuddy.UserProfileServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>UserProfileServlet</servlet-name>
         <url-pattern>/profile</url-pattern>

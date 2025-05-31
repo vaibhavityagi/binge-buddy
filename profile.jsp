@@ -3,7 +3,7 @@
 <%@ page import="java.util.List" %>
 
 <%
-    String user = (String) session.getAttribute("userEmail");
+    String user = (String) session.getAttribute("username");
     if (user == null) {
         response.sendRedirect("login.jsp");
         return;

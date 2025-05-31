@@ -8,7 +8,7 @@ import java.sql.*;
 public class UserProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
         String username = (String) session.getAttribute("username");
 
         if (username == null) {
@@ -39,8 +39,7 @@ public class UserProfileServlet extends HttpServlet {
 
             request.setAttribute("username", username);
             request.setAttribute("favCount", favCount);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
-            dispatcher.forward(request, response);
+            request.getRequestDispatcher("profile.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             response.sendRedirect("error.jsp");

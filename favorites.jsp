@@ -1,5 +1,8 @@
-<%@ page import="java.util.* %>
-<%@ page session="true" %>
+<%@ page import="java.util.*, java.util.Map" %>
+<%
+    List<Map<String, String>> favorites = (List<Map<String, String>>) request.getAttribute("favorites");
+    if (favorites == null) favorites = new ArrayList<>();
+%>
 
 <!DOCTYPE html>
 <html lang="en">
