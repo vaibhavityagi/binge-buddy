@@ -37,13 +37,25 @@ response.sendRedirect("login.jsp"); return; } %>
     <div class="main-content">
       <h1>Welcome, <%= user %>! Find your favourite TV shows</h1>
       <header>
-        <form
-          id="searchForm"
-          style="display: flex; gap: var(--space-3); width: 100%"
-        >
+        <div style="display: flex; gap: var(--space-3); width: 100%">
           <input type="text" placeholder="Search TV show..." id="searchBar" />
           <button type="submit" class="btn" id="searchBtn">Search</button>
-        </form>
+        </div>
+        <% String mssg = (String) request.getAttribute("mssg"); if (mssg !=
+        null) { %>
+        <p
+          id="flash-message"
+          style="color: white; text-align: center; margin-top: 1em"
+        >
+          <%= mssg %>
+        </p>
+        <script>
+          setTimeout(function () {
+            var msg = document.getElementById("flash-message");
+            if (msg) msg.style.display = "none";
+          }, 3000);
+        </script>
+        <% } %>
       </header>
       <div class="container"></div>
     </div>
@@ -51,4 +63,3 @@ response.sendRedirect("login.jsp"); return; } %>
     <script src="search.js"></script>
   </body>
 </html>
-

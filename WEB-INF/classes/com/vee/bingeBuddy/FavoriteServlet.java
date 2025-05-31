@@ -94,7 +94,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
         }
 
         request.setAttribute("favorites", favorites);
-        request.getRequestDispatcher("favorites.jsp").forward(request, response);
+        request.setAttribute("mssg", "Successfully added to your favorites!");
+        request.getRequestDispatcher("search.jsp").forward(request, response);
 
     } catch (Exception e) {
         e.printStackTrace();

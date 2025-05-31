@@ -9,7 +9,7 @@ response.sendRedirect("search.jsp"); return; } %>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Welcome to BingeBuddy</title>
     <link rel="stylesheet" href="styles.css" />
-        <style>
+    <style>
       body {
         display: flex;
         flex-direction: column;
@@ -31,4 +31,3 @@ response.sendRedirect("search.jsp"); return; } %>
     </div>
   </body>
 </html>
-

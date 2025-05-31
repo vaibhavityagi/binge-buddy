@@ -15,8 +15,8 @@ response.sendRedirect("login.jsp"); return; } List<String>
         <nav class="navbar">
           <div class="nav-left">Binge Buddy</div>
           <div class="nav-links">
+            <a href="search.jsp" class="btn">Search</a>
             <a href="favorites" class="btn">Favourites</a>
-            <a href="search" class="btn">Search</a>
             <a href="logout.jsp" class="btn">Logout</a>
           </div>
         </nav>
@@ -41,4 +41,5 @@ response.sendRedirect("login.jsp"); return; } List<String>
         </div>
       </body>
     </html>
-
+  </String></String
+>

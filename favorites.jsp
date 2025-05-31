@@ -53,7 +53,7 @@
       <div class="nav-left">Binge Buddy</div>
       <div class="nav-links">
         <a href="search.jsp" class="btn">Search</a>
-        <a href="profile.jsp" class="btn">Profile</a>
+        <a href="profile" class="btn">Profile</a>
         <a href="logout.jsp" class="btn">Logout</a>
       </div>
     </nav>
