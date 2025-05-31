@@ -12,13 +12,11 @@
         justify-content: center;
         min-height: 100vh;
         margin: 0;
-        padding: var(--space-4);
       }
       .form-container {
         width: 100%;
         max-width: 400px;
         margin: var(--space-8) auto;
-        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-lg);

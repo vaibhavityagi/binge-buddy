@@ -271,7 +271,7 @@ button:active,
 
 /* Enhanced form container */
 .form-container {
-  background: rgba(255, 255, 255, 0.95);
+  /* background: rgba(255, 255, 255, 0.95); */
   backdrop-filter: blur(20px);
   padding: var(--space-10);
   border-radius: var(--radius-xl);
@@ -349,7 +349,7 @@ button:active,
 
 /* Enhanced welcome container */
 .welcome-container {
-  background: rgba(255, 255, 255, 0.95);
+  /* background: rgba(255, 255, 255, 0.95); */
   backdrop-filter: blur(20px);
   padding: var(--space-12);
   border-radius: var(--radius-xl);
@@ -401,15 +401,10 @@ button:active,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: var(--radius-lg);
   padding: var(--space-6);
   margin: var(--space-4) 0;
-  box-shadow: var(--shadow-md);
   width: 100%;
   max-width: 700px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all var(--transition-normal);
   animation: slideInLeft 0.5s ease forwards;
   position: relative;
@@ -789,17 +784,14 @@ a:focus-visible {
     color: black !important;
   }
 }
-
 .profile-container {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  padding: var(--space-8);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  max-width: 600px;
+  width: 100%;
+  max-width: 800px;
   margin: var(--space-8) auto;
-  text-align: center;
+  padding: var(--space-8);
   animation: fadeInScale 0.7s;
+  color: var(--text-primary);
+  text-align: center;
 }
 .profile-container h2 {
   margin-bottom: var(--space-4);
@@ -888,4 +880,3 @@ a:focus-visible {
     gap: var(--space-3);
   }
 }
-

@@ -9,6 +9,16 @@ response.sendRedirect("search.jsp"); return; } %>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Welcome to BingeBuddy</title>
     <link rel="stylesheet" href="styles.css" />
+        <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
     <div class="welcome-container">

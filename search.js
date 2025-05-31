@@ -1,6 +1,6 @@
 // selecting the elements
 const query = document.querySelector("#searchBar");
-const submit = document.querySelector("button");
+const submit = document.querySelector("#searchBtn");
 const container = document.querySelector(".container");
 
 // functions
