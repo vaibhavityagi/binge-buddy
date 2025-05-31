@@ -6,26 +6,33 @@ import javax.servlet.http.*;
 import java.sql.*;
 
 public class LoginServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        try (Connection con = DatabaseConnection.getConnection()) {
-            PreparedStatement pst = con.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?");
-            pst.setString(1, username);
-            pst.setString(2, password);
-            ResultSet rs = pst.executeQuery();
+        try (Connection conn = DatabaseConnection.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement("SELECT password FROM users WHERE username = ?");
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                HttpSession session = request.getSession();
-                session.setAttribute("userEmail", username);
-                response.sendRedirect("index.jsp");
-            } else {
-                response.sendRedirect("index.jsp?error=1");
+                String dbPassword = rs.getString("password");
+                if (dbPassword.equals(password)) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("username", username);
+                    response.sendRedirect("search.jsp");
+                    return;
+                }
             }
+
+            request.setAttribute("msg", "Invalid credentials.");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("index.jsp?error=2");
+            request.setAttribute("msg", "Something went wrong.");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 }
