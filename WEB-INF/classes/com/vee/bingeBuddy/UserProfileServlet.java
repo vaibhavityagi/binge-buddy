@@ -6,9 +6,10 @@ import java.io.IOException;
 import java.sql.*;
 
 public class UserProfileServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         HttpSession session = request.getSession(false);
-        String username = (String) session.getAttribute("userEmail");
+        String username = (String) session.getAttribute("username");
 
         if (username == null) {
             response.sendRedirect("login.jsp");
@@ -27,7 +28,8 @@ public class UserProfileServlet extends HttpServlet {
 
             int favCount = 0;
             if (userId != -1) {
-                PreparedStatement countStmt = conn.prepareStatement("SELECT COUNT(*) AS count FROM favorites WHERE user_id = ?");
+                PreparedStatement countStmt = conn
+                        .prepareStatement("SELECT COUNT(*) AS count FROM favorites WHERE user_id = ?");
                 countStmt.setInt(1, userId);
                 ResultSet countRs = countStmt.executeQuery();
                 if (countRs.next()) {
