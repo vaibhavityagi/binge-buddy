@@ -1,4 +1,5 @@
 <%@ page import="java.sql.*, java.util.*" %>
+<%@ page import="com.vee.bingeBuddy.DatabaseConnection" %>
 <%@ page session="true" %>
 <%
     String user = (String) session.getAttribute("username");
