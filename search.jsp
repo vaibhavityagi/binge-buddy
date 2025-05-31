@@ -102,7 +102,7 @@ response.sendRedirect("login.jsp"); return; } %>
           style="display: flex; gap: var(--space-3); width: 100%"
         >
           <input type="text" placeholder="Search TV show..." id="searchBar" />
-          <button type="submit" class="btn">Search</button>
+          <button type="submit" class="btn" id="searchBtn">Search</button>
         </form>
       </header>
       <div class="container"></div>
