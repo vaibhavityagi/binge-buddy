@@ -19,7 +19,7 @@ response.sendRedirect("login.jsp"); return; } %>
     <div class="container"></div>
 
     <br />
-    <a href="profile">My Profile</a>
+    <a href="profile.jsp">My Profile</a>
     <a href="favorites.jsp">My Favourites</a>
     <a href="logout.jsp" style="color: white">Logout</a>
 

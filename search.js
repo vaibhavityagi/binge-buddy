@@ -81,6 +81,16 @@ const err = () => {
 let cnt = 0;
 const fetchData = async () => {
     try {
+        fetch('search', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: new URLSearchParams({
+        query: query
+    })
+});
+
         const config = { params: { q: query.value } }
         const res = await axios.get("https://api.tvmaze.com/search/shows", config)
         cnt++;

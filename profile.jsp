@@ -13,7 +13,7 @@
         request.getAttribute("favCount") %>
       </p>
       <a href="favorites.jsp">View My Favourites</a><br />
-      <a href="logout">Logout</a>
+      <a href="logout.jsp">Logout</a>
     </div>
   </body>
 </html>
