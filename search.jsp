@@ -9,6 +9,31 @@ response.sendRedirect("login.jsp"); return; } %>
     <title>TV Show Search</title>
     <link rel="stylesheet" href="styles.css" />
     <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: var(--space-4);
+      }
+      .main-content {
+        width: 100%;
+        max-width: 800px;
+        margin: var(--space-8) auto;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+        padding: var(--space-8);
+        animation: fadeInScale 0.7s;
+      }
+      .container {
+        width: 100%;
+        max-width: 800px;
+        margin: var(--space-8) auto;
+      }
       .navbar {
         width: 100%;
         background: linear-gradient(
@@ -47,19 +72,7 @@ response.sendRedirect("login.jsp"); return; } %>
         background: var(--accent-color);
         color: var(--primary-dark);
       }
-      .main-content {
-        max-width: 800px;
-        margin: 2rem auto;
-        background: var(--bg-primary);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-lg);
-        padding: var(--space-8);
-        animation: fadeInScale 0.7s;
-      }
       @media (max-width: 600px) {
-        .main-content {
-          padding: var(--space-4);
-        }
         .navbar {
           flex-direction: column;
           align-items: flex-start;
@@ -74,7 +87,7 @@ response.sendRedirect("login.jsp"); return; } %>
 
   <body>
     <nav class="navbar">
-      <div class="nav-left">TVShowFinder</div>
+      <div class="nav-left">Binge Buddy</div>
       <div class="nav-links">
         <a href="profile" class="btn">My Profile</a>
         <a href="favorites" class="btn">My Favourites</a>
