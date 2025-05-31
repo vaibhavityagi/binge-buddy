@@ -11,25 +11,12 @@
     <title>Your Favorites - TV Show Search</title>
     <link rel="stylesheet" href="styles.css" />
     <style>
-      body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        margin: 0;
-        padding: var(--space-4);
-      }
       .fav-list {
         width: 100%;
         max-width: 800px;
         margin: var(--space-8) auto;
       }
       .fav-card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-lg);
         padding: var(--space-6);
         margin-bottom: var(--space-4);
         display: flex;

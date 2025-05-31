@@ -20,7 +20,6 @@ language="java" %>
         width: 100%;
         max-width: 400px;
         margin: var(--space-8) auto;
-        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-lg);

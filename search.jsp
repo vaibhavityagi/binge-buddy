@@ -9,23 +9,10 @@ response.sendRedirect("login.jsp"); return; } %>
     <title>TV Show Search</title>
     <link rel="stylesheet" href="styles.css" />
     <style>
-      body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        min-height: 100vh;
-        margin: 0;
-        padding: var(--space-4);
-      }
       .main-content {
         width: 100%;
         max-width: 800px;
         margin: var(--space-8) auto;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-lg);
         padding: var(--space-8);
         animation: fadeInScale 0.7s;
         color: var(--text-primary);
