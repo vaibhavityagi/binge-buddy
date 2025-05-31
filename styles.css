@@ -20,6 +20,8 @@
   --text-primary: #2d3748;
   --text-secondary: #4a5568;
   --text-light: #718096;
+  --text-on-dark: #ffffff;
+  --text-on-light: #2d3748;
   --bg-primary: #ffffff;
   --bg-secondary: #f7fafc;
   --bg-tertiary: #edf2f7;
@@ -62,6 +64,8 @@
     --text-primary: #f7fafc;
     --text-secondary: #e2e8f0;
     --text-light: #a0aec0;
+    --text-on-dark: #ffffff;
+    --text-on-light: #1a202c;
     --bg-primary: #1a202c;
     --bg-secondary: #2d3748;
     --bg-tertiary: #4a5568;
@@ -168,7 +172,9 @@ button,
     var(--primary-color),
     var(--primary-dark)
   );
-  color: white;
+  color: var(
+    --text-on-dark
+  ); /* Fixed: Using text-on-dark for better contrast */
   font-family: inherit;
   font-size: 0.875rem;
   font-weight: 600;
@@ -227,15 +233,23 @@ button:active,
 /* Button variants */
 .btn-secondary {
   background: linear-gradient(135deg, var(--bg-tertiary), var(--text-light));
-  color: var(--text-primary);
+  color: var(
+    --text-on-dark
+  ); /* Fixed: Using text-on-dark for better contrast */
 }
 
 .btn-danger {
   background: linear-gradient(135deg, var(--danger-color), #e53e3e);
+  color: var(
+    --text-on-dark
+  ); /* Fixed: Using text-on-dark for better contrast */
 }
 
 .btn-success {
   background: linear-gradient(135deg, var(--success-color), #38a169);
+  color: var(
+    --text-on-dark
+  ); /* Fixed: Using text-on-dark for better contrast */
 }
 
 /* Container improvements */
@@ -271,7 +285,9 @@ button:active,
 
 .form-container h2 {
   text-align: center;
-  color: var(--text-primary);
+  color: var(
+    --text-on-light
+  ); /* Fixed: Using text-on-light for better contrast */
   margin-bottom: var(--space-8);
   position: relative;
 }
@@ -292,6 +308,9 @@ button:active,
 .form-container input[type="password"],
 .form-container input[type="email"] {
   margin-bottom: var(--space-5);
+  color: var(
+    --text-on-light
+  ); /* Fixed: Using text-on-light for better contrast */
 }
 
 .form-container input[type="submit"] {
@@ -305,7 +324,7 @@ button:active,
   display: block;
   text-align: center;
   margin-top: var(--space-6);
-  color: var(--primary-color);
+  color: var(--primary-dark); /* Fixed: Darker color for better contrast */
   text-decoration: none;
   font-weight: 500;
   transition: all var(--transition-normal);
@@ -357,7 +376,9 @@ button:active,
 .welcome-container p {
   font-size: 1.125rem;
   margin-bottom: var(--space-8);
-  color: var(--text-secondary);
+  color: var(
+    --text-on-light
+  ); /* Fixed: Using text-on-light for better contrast */
 }
 
 .welcome-container .btn-group {
@@ -365,6 +386,13 @@ button:active,
   gap: var(--space-4);
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.welcome-container a {
+  color: var(
+    --text-on-dark
+  ); /* Fixed: Using text-on-dark for better contrast */
+  text-decoration: none;
 }
 
 /* Enhanced card styles */
@@ -439,7 +467,9 @@ button:active,
 .show-info p,
 .fav-info {
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(
+    --text-on-light
+  ); /* Fixed: Using text-on-light for better contrast */
   font-size: 1.125rem;
   line-height: 1.4;
 }
@@ -458,6 +488,9 @@ button:active,
   border-radius: var(--radius-md);
   font-weight: 600;
   min-width: 100px;
+  color: var(
+    --text-on-dark
+  ); /* Fixed: Using text-on-dark for better contrast */
 }
 
 /* Enhanced logout link */
@@ -469,8 +502,15 @@ a.logout-link {
   margin: var(--space-6) auto;
   padding: var(--space-3) var(--space-5);
   text-align: center;
-  color: white;
-  background: rgba(255, 255, 255, 0.1);
+  color: var(
+    --text-on-dark
+  ); /* Fixed: Using text-on-dark for better contrast */
+  background: rgba(
+    44,
+    62,
+    80,
+    0.7
+  ); /* Fixed: Darker background for better contrast */
   backdrop-filter: blur(10px);
   text-decoration: none;
   font-weight: 600;
@@ -481,9 +521,60 @@ a.logout-link {
 }
 
 a.logout-link:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(
+    44,
+    62,
+    80,
+    0.9
+  ); /* Fixed: Darker background for better contrast */
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+
+/* Dark mode specific adjustments */
+@media (prefers-color-scheme: dark) {
+  .form-container,
+  .welcome-container,
+  .show-card,
+  .fav-card {
+    background: rgba(
+      26,
+      32,
+      44,
+      0.8
+    ); /* Fixed: Darker background in dark mode */
+    border-color: rgba(74, 85, 104, 0.3);
+  }
+
+  .form-container input[type="text"],
+  .form-container input[type="password"],
+  .form-container input[type="email"] {
+    background-color: rgba(45, 55, 72, 0.8);
+    border-color: rgba(74, 85, 104, 0.5);
+    color: var(--text-on-dark);
+  }
+
+  .form-container a {
+    color: var(--accent-color); /* Fixed: Brighter color in dark mode */
+  }
+
+  .show-info p,
+  .fav-info,
+  .form-container h2,
+  .welcome-container p {
+    color: var(
+      --text-on-dark
+    ); /* Fixed: Using text-on-dark for better contrast */
+  }
+
+  a.logout-link {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-on-dark);
+  }
+
+  a.logout-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
 }
 
 /* Enhanced animations */
@@ -632,6 +723,41 @@ a:focus-visible {
     --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
     --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.3);
   }
+
+  button,
+  .fav-btn,
+  .form-container input[type="submit"],
+  .btn {
+    background: var(--primary-dark);
+    color: white;
+  }
+
+  .form-container,
+  .welcome-container,
+  .show-card,
+  .fav-card {
+    background: white;
+    border: 2px solid black;
+  }
+
+  .form-container h2,
+  .welcome-container h1,
+  .show-info p,
+  .fav-info {
+    color: black;
+  }
+
+  .welcome-container h1 {
+    background: none;
+    -webkit-text-fill-color: black;
+    color: black;
+  }
+
+  a.logout-link {
+    background: #2c3e50;
+    color: white;
+    border: 2px solid white;
+  }
 }
 
 /* Print styles */
@@ -648,5 +774,18 @@ a:focus-visible {
     background: white !important;
     box-shadow: none !important;
     border: 1px solid #ccc !important;
+  }
+
+  .form-container h2,
+  .welcome-container h1,
+  .show-info p,
+  .fav-info {
+    color: black !important;
+  }
+
+  .welcome-container h1 {
+    background: none !important;
+    -webkit-text-fill-color: black !important;
+    color: black !important;
   }
 }

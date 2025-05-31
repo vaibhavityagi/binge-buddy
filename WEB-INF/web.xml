@@ -47,6 +47,17 @@
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
 
+    <!-- User Profile Servlet -->
+    <servlet>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <servlet-class>com.vee.bingeBuddy.UserProfileServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserProfileServlet</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+
     <!-- Welcome Page -->
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
