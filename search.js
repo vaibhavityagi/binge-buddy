@@ -81,7 +81,8 @@ const err = () => {
 let cnt = 0;
 const fetchData = async () => {
   try {
-    fetch("search", {
+    // Send search query to the server for logging
+    await fetch("search", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -91,6 +92,7 @@ const fetchData = async () => {
       }),
     });
 
+    // Then fetch show data from TVMaze
     const config = { params: { q: query.value } };
     const res = await axios.get("https://api.tvmaze.com/search/shows", config);
     cnt++;
@@ -100,7 +102,6 @@ const fetchData = async () => {
     err();
   }
 };
-
 // event listeners
 submit.addEventListener("click", fetchData);
 

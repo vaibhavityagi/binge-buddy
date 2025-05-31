@@ -12,25 +12,28 @@ public class SearchServlet extends HttpServlet {
         String username = (String) session.getAttribute("username");
         String query = request.getParameter("query");
 
+        if (username == null || query == null || query.trim().isEmpty()) {
+            return;
+        }
+
         try (Connection conn = DatabaseConnection.getConnection()) {
             PreparedStatement uidStmt = conn.prepareStatement("SELECT id FROM users WHERE username = ?");
             uidStmt.setString(1, username);
             ResultSet rs = uidStmt.executeQuery();
-
+            int userId = -1;
             if (rs.next()) {
-                int userId = rs.getInt("id");
-
+                userId = rs.getInt("id");
+            }
+            if (userId != -1) {
                 PreparedStatement ps = conn
-                        .prepareStatement("INSERT INTO search_history (user_id, query) VALUES (?, ?)");
+                        .prepareStatement("INSERT INTO searches (user_id, query, timestamp) VALUES (?, ?, NOW())");
                 ps.setInt(1, userId);
-                ps.setString(2, query);
+                ps.setString(2, query.trim());
                 ps.executeUpdate();
             }
-
-            response.sendRedirect("index.jsp");
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("index.jsp?error=search");
         }
     }
+
 }

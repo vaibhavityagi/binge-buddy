@@ -2,8 +2,8 @@
 session="true" %> <%@ page import="java.util.List" %> <% String user = (String)
 session.getAttribute("username"); if (user == null) {
 response.sendRedirect("login.jsp"); return; } List<String>
-  searchHistory = (List<String
-    >) request.getAttribute("searchHistory"); %>
+  recentSearches = (List<String
+    >) request.getAttribute("recentSearches"); %>
 
     <!DOCTYPE html>
     <html>
@@ -43,14 +43,15 @@ response.sendRedirect("login.jsp"); return; } List<String>
             <a href="logout.jsp" class="btn">Logout</a>
           </div>
         </nav>
+
         <div class="profile-container">
           <h2>Welcome, <%= user %></h2>
 
-          <h3>Your Recent Searches:</h3>
+          <h3>Recent Searches</h3>
           <ul>
-            <% if (searchHistory != null && !searchHistory.isEmpty()) { for
-            (String q : searchHistory) { %>
-            <li><%= q %></li>
+            <% if (recentSearches != null && !recentSearches.isEmpty()) { for
+            (String search : recentSearches) { %>
+            <li><%= search %></li>
             <% } } else { %>
             <li>No recent searches found.</li>
             <% } %>
@@ -63,5 +64,4 @@ response.sendRedirect("login.jsp"); return; } List<String>
         </div>
       </body>
     </html>
-  </String></String
->
+
