@@ -82,7 +82,7 @@ let cnt = 0;
 const fetchData = async () => {
     try {
         const config = { params: { q: query.value } }
-        const res = await axios.get(https://api.tvmaze.com/search/shows, config)
+        const res = await axios.get("https://api.tvmaze.com/search/shows", config)
         cnt++;
         if (cnt > 1) removeShows()
         printShows(res.data)
